@@ -1,0 +1,203 @@
+ /* Estilos generales */
+ body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #371345; /* Azul oscuro */
+    margin: 0;
+    padding: 20px;
+    color: #f0f0f0; /* Blanco grisáceo */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.3); /* Azul más claro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Encabezado */
+h1 {
+    color: #801b7c; /* Rojo coral */
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input, select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2b154aa7; /* Azul profundo */
+    color: #f0f0f0;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border: 2px solid #b0602e;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #420e43;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #534251; /* Rojo coral */
+    transform: scale(1.05);
+}
+
+/* Mensaje de salida */
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    background: #3e194d; /* Azul profundo */
+    border-radius: 5px;
+    border: 1px solid #7c65e6; /* Rojo coral */
+    font-size: 16px;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+/* Contenedor del gráfico */
+#chart-container {
+    margin-top: 30px ;
+}
+
+canvas {
+    background: #4f0c56; /* Azul profundo */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+body {
+    background: url('../img/fondo.png') no-repeat center center fixed !important;
+    background-size: cover !important;
+    color: #ffffff !important;
+    font-family: Arial, sans-serif  !important;
+}
+.navbar, .footer {
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: #ffffff !important;
+    padding: 10px 0px 10px 0px !important;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5) !important;
+    z-index: 1000; /* Posición de la barra superior */
+    text-align: center !important;
+}
+.content-container {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 15px         !important;
+    padding: 30px 50px 30px 50px !important;
+    margin-top: 50px            !important;
+    margin-bottom: 50px          !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+.form-control, .btn {
+    border-radius: 10px  !important;
+}
+.result-card {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
+    padding: 15px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+.chart-container img {
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding: 10px !important;
+    border-radius: 15px !important;
+}
+
+.lineaSeparadora {
+    height: 2px; /* Grosor de la línea */
+    background: linear-gradient(to right, #2c032e, #9303ac); /* Degradado de colores */
+    border: none; /* Sin borde extra */
+    margin: 20px 0; /* Espaciado arriba y abajo */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.styled-input {
+width: 100% !important; /* Ocupa todo el ancho del contenedor */
+padding: 10px !important; /* Espaciado interno */
+border: 2px solid transparent !important; /* Borde inicial transparente */
+border-radius: 10px !important; /* Bordes redondeados */
+background: rgba(255, 255, 255, 0.2) !important; /* Fondo transparente */
+color: #fff !important; /* Color del texto */
+font-size: 16px !important; /* Tamaño del texto */
+outline: none !important; /* Quitar el borde azul al hacer clic */
+transition: all 0.3s ease-in-out !important; /* Transiciones suaves */
+}
+
+.styled-input:focus {
+border-color: #91229b !important; /* Color del borde al hacer clic */
+background: rgba(255, 255, 255, 0.567) !important; /* Fondo más visible */
+box-shadow: 0 0 8px #d2bed0 !important; /* Efecto de brillo */
+}
+.btn-primary {
+background: linear-gradient(90deg, #b635cf, #771498) !important; /* Degradado de color */
+border: 2px solid #7f0f85 !important; /* Borde azul */
+border-radius: 10px !important; /* Bordes redondeados */
+color: white !important; /* Color del texto */
+font-size: 16px !important; /* Tamaño del texto */
+font-weight: bold !important; /* Texto en negrita */
+padding: 10px 20px !important; /* Espaciado interno */
+text-transform: uppercase !important; /* Texto en mayúsculas */
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3) !important; /* Sombra */
+transition: all 0.3s ease-in-out !important; /* Transición suave */
+}
+
+.btn-primary:hover {
+background: linear-gradient(90deg, #360d44, #b238bb) !important; /* Degradado invertido */
+color: #ffffff !important; /* Color del texto */
+box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5) !important; /* Sombra más fuerte */
+transform: scale(1.05) !important; /* Ligero aumento de tamaño */
+}
+
+.btn-primary:focus {
+outline: none !important; /* Eliminar borde predeterminado al enfocar */
+border-color: #350a38 !important; /* Cambiar el color del borde */
+box-shadow: 0px 0px 10px #851682 !important; /* Brillo */
+}
+
+p{
+color: #6457d6 !important;
+}
+h3{
+color: #70a1ff !important;
+}
+
+.titulo{
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}

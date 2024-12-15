@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Agentes Inteligentes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#"><b>AGENTES INTELIGENTES</b></a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Ejercicio 02</h1>
+        <section class="card">
+            <h2>Entrenamiento de Red Neuronal</h2>
+            <form id="train-form">
+                <div class="form-group">
+                    <label for="epochs">Número de épocas:</label>
+                    <input type="number" id="epochs" name="epochs" value="10000" required class="styled-input">
+                </div>
+                <div class="form-group">
+                    <label for="learning_rate">Tasa de aprendizaje:</label>
+                    <input type="number" id="learning_rate" name="learning_rate" step="0.001" value="0.005" required class="styled-input">
+                </div>
+                <div class="form-group">
+                    <label for="activation">Función de activación:</label>
+                    <select id="activation" name="activation" class="styled-input">
+                        <option value="sigmoid">Sigmoid</option>
+                        <option value="relu">ReLU</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Entrenar Red Neuronal</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Clasificación de Imagen</h2>
+            <form id="image-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="image">Subir Imagen de Flor:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required class="styled-input">
+                </div>
+                <button type="submit" class="btn-primary">Clasificar Imagen</button>
+            </form>
+            <div id="image-preview" class="image-preview"></div>
+            <div id="image-output" class="output"></div>
+            <div id="accuracy-output" class="output"></div>
+        </section>
+
+        <section class="card">
+            <h2>Resultados del Entrenamiento</h2>
+            <div id="chart-container">
+                <canvas id="accuracyChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Desarrollado por <b>Ilan</b></p>
+    </footer>
+
+    <script src="../static/js/app.js"></script>
+    <script>
+        document.getElementById('image').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imageElement = document.createElement('img');
+                imageElement.src = e.target.result;
+                imageElement.alt = 'Imagen cargada';
+                imageElement.style.maxWidth = '100%';
+                imageElement.style.maxHeight = '300px';
+                const previewDiv = document.getElementById('image-preview');
+                previewDiv.innerHTML = '';
+                previewDiv.appendChild(imageElement);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('image-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('image', document.getElementById('image').files[0]);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const output = document.getElementById('image-output');
+                output.innerHTML = `Predicción: ${data.prediction}`;
+
+                const accuracyOutput = document.getElementById('accuracy-output');
+                accuracyOutput.innerHTML = `Precisión: ${data.accuracy}`;
+            })
+            .catch(error => {
+                const output = document.getElementById('image-output');
+                output.innerHTML = 'Error en la clasificación de la imagen.';
+                console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>
